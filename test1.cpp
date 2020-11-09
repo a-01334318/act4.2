@@ -1,20 +1,31 @@
 #define CATCH_CONFIG_MAIN
-#include <string>
+#include <iostream>
+#include <fstream>
 #include "catch.hpp"
-#include "bst.h"
+#include "activity.h"
 
-TEST_CASE("testing byLevel", "[byLevel]") {
-	int adding[] = {50, 25, 75, 12, 40, 60, 80, 5, 18, 30, 45, 55, 80};
-  BST<int> b1, b2, b3;
+using namespace std;
 
-  for(int i = 0; i < 13; i++) {
-    if (i < 7) {
-      b2.add(adding[i]);
-    }
-    b3.add(adding[i]);
-  }
+TEST_CASE("testing exercise 1", "[exercise1]") {
+	int n, from, to;
+	ifstream input;
+	UListGraph<int> *graph;
 
-	REQUIRE(b1.byLevel() == "[]");
-	REQUIRE(b2.byLevel() == "[50 25 75 12 40 60 80 ]");
-	REQUIRE(b3.byLevel() == "[50 25 75 12 40 60 80 5 18 30 45 55 ]");
+	input.open("input1.txt");
+	input >> n;
+	graph = new UListGraph<int>(n);
+
+	while (1) {
+		input >> from >> to;
+		if (!from && !to) {
+			break;
+		}
+		graph->addEdge(from, to);
+	}
+
+	REQUIRE(topologicalSort(graph) == "[1 2 3 4 5 12 8 6 10 7 9 13 11 15 16 14 19 17 20 18]");
+	REQUIRE(isBipartite(graph) == true);
+	REQUIRE(isTree(graph) == false);
+
+	delete graph;
 }

@@ -1,29 +1,32 @@
-# Act 3.1 - Operaciones avanzadas en un BST
+# Act 4.2 - Grafos: Algoritmos complementarios
 
 ## <span style="color: rgb(26, 99, 169);">¿Qué tengo que hacer?</span>
-Diseña e implementa en forma <span style="text-decoration-line: underline;">forma individual</span>, las funciones que resuelvan los problemas que se describen a continuación.
+Diseña e implementa en forma <ins>forma individual</ins>, las funciones que resuelvan los problemas que se describen a continuación.
 
 En la parte superior del archivo coloca, en comentarios, tus datos. Por ejemplo:
 ```
 // =========================================================
-// File: bst.h
+// File: activity.h
 // Author:
 // Date:
 // =========================================================
 ```
 Las funciones que debes implementar son:
 
- - ``` template <class T> string BST<T>::byLevel()```
- Devuelve un string conteniendo el recorrido por niveles del árbol.
+ 1. ``` template <class Vertex> void dfs2(Vertex v, const UnweightedGraph<Vertex>* graph, std::set<Vertex> &reached, std::stack<Vertex> &TS) ```
+ Implementa la búsqueda en profundidad modifica vista en clase. Esta función la usuarás para resolver el siguiente problema.
 
-2. ```template <class T> uint Node<T>::leaves() const```
-Regresa la cantidad de hojas que están por debajo del nodo actual. Recuerda que un nodo sin hijo es una hoja. En caso contrario, se deberá regresa la cantidad de hojas del hijo izquierdo más las hojas que están en el lado derecho.
-3. ```template <class T> bool Node<T>::isFull() const```
-Regresa verdadero si el nodo actual es la base de un subárbol completo. En cualquier otro caso, regresa falso. Un árbol se considera completo si:
-	- El nodo es una hoja.
-	- El nodo tiene ambos hijos, sus dos hijos son la base de un subárbol completo y ambos hijos tienen la misma profundidad.
-4. ```template <class T> T Node<T>::ancestor(T val) const```
-Regresa el valor almacenado en el nodo padre del nodo que contiene *val*. Si *val* no se encuentra en el árbol, deberá lanzar la excepción *NoSuchElement*. **Tip:** La estrategia más sencilla para resolver este problema es que el padre pregunte por el valor almacenado del hijo.
+2. ```template <class Vertex> std::string topologicalSort(const UnweightedGraph<Vertex>* graph)```
+Regresa un *string* conteniendo el recorrido topológico (*topological sort*) del grafo *graph*. El *Topological Sort* de un Grafo Direccionado Acíclico (*Directed Acyclic Graph*, *DAG*) es un ordenamiento lineal de los vértices que aparecen en un *DAG* tal que si el vértice *u* aparece antes de *v* es porque existe un arco (*u* -> *v*) en el *DAG*. Cada *DAG* tiene al menos, y posiblemente más,  un *topological sort*.
+
+3. ```template <class Vertex> bool isBipartite(const UnweightedGraph<Vertex>* graph)```
+Regresa verdadero si el grafo es bipartita; falso en caso contrario. Un grafo es bipartita si los vértices del grafo pueden ser divididos en dos conjuntos disjuntos R y S tal que cada arco conecta a un vértice en R con un vértice en S.
+
+4. ``` template  <class Vertex> bool isCyclic(Vertex v, const UnweightedGraph<Vertex>* graph,   std::set<Vertex> &reached, Vertex parent) ```
+Encuentra la raíz del árbol, que es el vértice sin aristas entrantes. Si no existe ningún nodo, devuelve falso. Si existe más de un nodo, entonces el gráfico no está conectado y también deberíamos devolver falso.
+
+5. ```template <class Vertex> bool isTree(const UnweightedGraph<Vertex>* graph)```
+Regresa verdadero si el grafo forma un árbol; falso en caso contrario. Para ello, debemos determinar que el grafo se acíclico, que no existe más que un vértice sin aristas entrantes y que esté conectado.
 
 <br>Todas las funcionalidades deberán de estar correctamente alineadas y documentadas.&nbsp; Recuerda que todas las funcionalidades deberán pasar exitosamente todas las pruebas. Como parte de la documentación deberá incluirse la complejidad de cada una de ellas.
 
