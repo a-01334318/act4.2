@@ -24,7 +24,7 @@ TEST_CASE("testing exercise 1", "[exercise1]") {
 	}
 
 	REQUIRE(topologicalSort(graph) == "[1 2 3 4 5 12 8 6 10 7 9 13 11 15 16 14 19 17 20 18]");
-	REQUIRE(isBipartite(graph) == true);
+	REQUIRE(isBipartite(graph) == false);
 	REQUIRE(isTree(graph) == false);
 
 	delete graph;
