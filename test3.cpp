@@ -1,7 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include <iostream>
 #include <fstream>
-#include "catch.hpp"
+#include "catch.h"
 #include "activity.h"
 
 using namespace std;
