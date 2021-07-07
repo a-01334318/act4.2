@@ -2,7 +2,7 @@
 # Act 4.2 - Grafos: Algoritmos complementarios
 
 ## <span style="color: rgb(26, 99, 169);">¿Qué tengo que hacer?</span>
-Accede a la siguiente liga: HTTP y acepta la tarea. Esto creará tu repositorio de trabajo. En él, encontrarás el archivo "bst.h" que deberás modificar para el desarrollo de esta actividad. Deberás colocar en la parte superior, en comentarios, tus datos. Por ejemplo:
+Accede a la siguiente liga: HTTP y acepta la tarea. Esto creará tu repositorio de trabajo. En él, encontrarás el archivo "activity.h" que deberás modificar para el desarrollo de esta actividad. Deberás colocar en la parte superior, en comentarios, tus datos. Por ejemplo:
 ```
 // =========================================================
 // File: activity.h
@@ -16,7 +16,7 @@ Diseña e implementa en forma <ins>forma individual</ins>, las funciones que res
 Las funciones que debes implementar son:
 
  1. ``` template <class Vertex> void dfs2(Vertex v, const UnweightedGraph<Vertex>* graph, std::set<Vertex> &reached, std::stack<Vertex> &TS) ```
- Implementa la búsqueda en profundidad modifica vista en clase. Esta función la usuarás para resolver el siguiente problema.
+ Implementa la búsqueda en profundidad modifica vista en clase. Esta función la usurarás para resolver el siguiente problema.
 
 2. ```template <class Vertex> std::string topologicalSort(const UnweightedGraph<Vertex>* graph)```
 Regresa un *string* conteniendo el recorrido topológico (*topological sort*) del grafo *graph*. El *Topological Sort* de un Grafo Direccionado Acíclico (*Directed Acyclic Graph*, *DAG*) es un ordenamiento lineal de los vértices que aparecen en un *DAG* tal que si el vértice *u* aparece antes de *v* es porque existe un arco (*u* -> *v*) en el *DAG*. Cada *DAG* tiene al menos, y posiblemente más,  un *topological sort*.
